@@ -1,5 +1,6 @@
 import dotenv  from "dotenv"
-import connectDB from "./components/database.config.js"
+import {connectDB} from "./components/database.config.js"
+
 
 
 dotenv.config()
@@ -15,6 +16,8 @@ class Facade{
         
         return connectDB(this.env.MONGO_URI)
     }
+
+    
 
 }
 

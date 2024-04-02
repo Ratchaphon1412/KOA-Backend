@@ -4,7 +4,10 @@ import Router from '@koa/router';
 import userRouter from './api/users/user.routes.js';
 import todoRouter from './api/todo/todo.routes.js';
 
+import TodoModel from './api/todo/todo.model.js';
+
 import Facade from './config/index.js';
+
 
 
 const app = new Koa();
@@ -22,6 +25,12 @@ app.use(async (ctx, next) => {
 
 // db connection
 facade._connectDB();
+
+
+
+
+
+
 
 // router
 router.use('/api',userRouter.routes() , userRouter.allowedMethods());
