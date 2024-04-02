@@ -1,0 +1,34 @@
+version: "3.4"
+
+services:
+  mongo:
+    image: mongo:5
+    volumes:
+      - ./mongo/config:/data/configdb
+      - ./mongo/data:/data/db
+    environment:
+      TZ: Asia/Tokyo
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
+    ports:
+      - 27017:27017
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongo localhost:27017/test --quiet
+      interval: 10s
+      timeout: 3s
+      retries: 5
+  koa:
+    build:
+      context: .
+      dockerfile: dockerfile
+    volumes:
+      - .:/app
+    ports:
+      - 3000:3000
+    depends_on:
+      - mongo
+    healthcheck:
+      test: curl -f http://localhost:3000/health
+      interval: 10s
+      timeout: 3s
+      retries: 5

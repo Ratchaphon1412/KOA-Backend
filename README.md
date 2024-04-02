@@ -79,3 +79,7 @@ Webpack
 
 ESlint คือ Linter ที่จะแนะนำให้เราเขียนโค้ดตามกฎมาตรฐานต่าง (ที่คนส่วนมากเขียนกันนั่นเองง) เช่น ESlint จะเตือนถ้าเราประกาศตัวแปรแล้วไม่ใช้ หรือถ้าเราประกาศตัวแปร const แต่มีการ Assign ค่าให้ ESlint ก็จะเตือนให้เราเปลี่ยนไปใช้ประกาศ let แทน เป็นต้นซึ่งจะช่วยเปลี่ยนโค้ดที่เราเขียนให้มีมาตรฐานมากขึ้น อ่านง่ายมากขึ้น ช่วยลดข้อผิดพลาด(Bugs) และดูมีระดับมากขึ้น
 [reference](https://medium.com/@boomauakim/%E0%B8%AA%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%87%E0%B9%82%E0%B8%9B%E0%B8%A3%E0%B9%80%E0%B8%88%E0%B9%87%E0%B8%84%E0%B9%80%E0%B8%A3%E0%B8%B4%E0%B9%88%E0%B8%A1%E0%B8%95%E0%B9%89%E0%B8%99%E0%B9%81%E0%B8%9A%E0%B8%9A%E0%B8%87%E0%B9%88%E0%B8%B2%E0%B8%A2%E0%B9%86-%E0%B8%94%E0%B9%89%E0%B8%A7%E0%B8%A2-koa-node-js-framework-eslint-and-prettier-b3ed866e826)
+
+### Facade Config
+
+[reference](https://dev.to/tomekbuszewski/facade-pattern-in-javascript-3on4)
