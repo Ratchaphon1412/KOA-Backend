@@ -1,4 +1,5 @@
 import {Todo,Comment} from './todo.model.js';
+import { validateAll } from 'indicative/validator.js';
 import mongoose from 'mongoose';
 
 export async function getAllTodolist(ctx) {
@@ -8,9 +9,25 @@ export async function getAllTodolist(ctx) {
 }
 
 export async function createTodo(ctx) {
-    console.log(ctx)
+    const rules = {
+        title: 'required|string',
+        content: 'required|string'
+    }
+
+    try {
+        await validateAll(ctx.request.body, rules);
+
+    } catch (error) {
+        ctx.status = 400;
+        ctx.body = error;
+        console.log(error);
+        return;
+
+    }
+
+   
     const {title, content } = ctx.request.body;
-    console.log(title, content);
+    
     const todo = new Todo({
         title,
         content,
@@ -22,6 +39,24 @@ export async function createTodo(ctx) {
 }
 
 export async function updateTodoById(ctx) {
+    const rules = {
+        id: 'required',
+        title: 'string',
+        content: 'string',
+        completed: 'boolean'
+    }
+    try {
+        await validateAll(ctx.request.body, rules);
+
+    } catch (error) {
+        ctx.status = 400;
+        ctx.body = error;
+        console.log(error);
+        return;
+
+    }
+
+
    
     const { id, title, content, completed } = ctx.request.body;
     const todoId = new mongoose.Types.ObjectId(id);
@@ -79,6 +114,24 @@ export async function deleteTodoById(ctx) {
 
 
 export async function addCommentToTodoById(ctx) {
+
+    const rules = {
+        todo_id: 'required',
+        content: 'required|string'
+    }
+
+    try {
+
+        await validateAll(ctx.request.body, rules);
+
+    } catch (error) {
+        ctx.status = 400;
+        ctx.body = error
+
+        return;
+
+    }
+
     
     const {todo_id,content} = ctx.request.body;
     const id = new mongoose.Types.ObjectId(todo_id);
