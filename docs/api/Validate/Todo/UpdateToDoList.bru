@@ -1,0 +1,20 @@
+meta {
+  name: UpdateToDoList
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{local}}/api/todo/update
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "id":"660cffa13077a103c262ef29",
+    "title":"Test 1 Edit",
+    "content": 100,
+    "completed": false
+  }
+}
