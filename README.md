@@ -3,7 +3,39 @@
 ## Structure
 
 ```
-
+|- koa-backend
+  |- api
+    |- users
+      user.controller.js
+      user.model.js
+      user.routers.js
+    |- todo
+      todo.controller.js
+      todo.model.js
+      todo.routers.js
+  |- config
+    |- components
+      database.config.js
+      server.config.js
+    index.js
+  |- dist
+    bundle.js
+  |- docs
+    |- api
+  |- middleware
+    error.middleware.js
+  |- mongo (persist database)
+  .env
+  .env.example
+  .eslintignore
+  .eslintrc.cjs
+  .gitignore
+  index.js
+  package.json
+  yarn.lock
+  docker-compose.yml
+  dockerfile
+  README.md
 ```
 
 [reference structure](https://marcoghiani.com/blog/advanced-koa-js-boilerplate)
@@ -25,6 +57,8 @@ index.js ไฟล์ ใน folder ของ api จะรวม sub-router ข
 - What is Koa
 - Installation Project
 - Koa router
+- Kong Body
+- Validate Request with indicative
 - Webpack
 - Eslint
 - Facade Design Pattern
@@ -36,8 +70,11 @@ Koa เป็นเว็บเฟรมเวิร์กใหม่ที่�
 
 ### Installation Project
 
-```
-
+```sh
+git clone repo
+cd koa-backend
+yarn install
+docker-compose up -d
 ```
 
 ### Koa router
@@ -56,6 +93,10 @@ Koa เป็นเว็บเฟรมเวิร์กใหม่ที่�
 
   [issue 1](https://github.com/koajs/koa-body/issues/133)
   [issue 2](https://github.com/koajs/koa-body/issues/163)
+
+### Validate Request with indicative
+
+[docs indicative](https://indicative-v5.adonisjs.com/docs/installation)
 
 ### Webpack
 
