@@ -1,0 +1,18 @@
+meta {
+  name: AddComment
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{local}}/api/todo/comment/add
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "todo_id":"660d1090276f6194c73e9531",
+    "content":"Hello"
+  }
+}

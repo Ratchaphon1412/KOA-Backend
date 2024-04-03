@@ -1,0 +1,18 @@
+meta {
+  name: UpdateComment
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{local}}/api/todo/comment/update
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "comment_id":"660d17ba81f25fa05efbd6c5",
+    "content":"Hello world"
+  }
+}
