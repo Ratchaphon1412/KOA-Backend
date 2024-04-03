@@ -11,6 +11,10 @@ import Facade from './config/index.js';
 //library
 import {koaBody}  from 'koa-body';
 
+//middleware
+
+import errorHandler from './middleware/error.middleware.js';
+
 
 const app = new Koa();
 export const router = new Router();
@@ -34,6 +38,10 @@ facade._connectDB();
 // register library
 app.use(koaBody())
 
+
+// register middleware
+
+app.use(errorHandler);
 
 // router
 router.use('/api',userRouter.routes() , userRouter.allowedMethods());
