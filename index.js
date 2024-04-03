@@ -1,13 +1,15 @@
 import Koa from 'koa';
-import Router from '@koa/router';
 
+// routers
+import Router from '@koa/router';
 import userRouter from './api/users/user.routes.js';
 import todoRouter from './api/todo/todo.routes.js';
 
-import TodoModel from './api/todo/todo.model.js';
-
+// utilities
 import Facade from './config/index.js';
 
+//library
+import {koaBody}  from 'koa-body';
 
 
 const app = new Koa();
@@ -29,13 +31,18 @@ facade._connectDB();
 
 
 
-
+// register library
+app.use(koaBody())
 
 
 // router
 router.use('/api',userRouter.routes() , userRouter.allowedMethods());
 router.use('/api',todoRouter.routes() , todoRouter.allowedMethods());
 app.use(router.routes());
+
+
+
+
 
 
 // start the server
