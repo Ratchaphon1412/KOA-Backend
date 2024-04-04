@@ -1,17 +1,11 @@
-
-
-export default async function errorHandler(ctx, next) {
+export default async function errorHandler(app) {
+  app.use(async (ctx, next) => {
     try {
-        await next();
+      await next();
     } catch (err) {
-            console.log(err);
-            ctx.status = 500;
-            ctx.body = err;
-
-            
-        
-        
-
+      ctx.status = err.status;
+      ctx.body = err[0];
+      return;
     }
-
+  });
 }
