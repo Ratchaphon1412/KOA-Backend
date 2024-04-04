@@ -98,6 +98,10 @@ docker-compose up -d
 
 [docs indicative](https://indicative-v5.adonisjs.com/docs/installation)
 
+### HTTP Error Handling
+
+[http-errors](https://github.com/jshttp/http-errors#readme)
+
 ### Webpack
 
 Webpack
@@ -207,3 +211,23 @@ key feature ใหญ่ๆของ Mongoose
 - Queries Mongoose มี function ในการ query ท่าต่างๆเตรียมไว้ให้เเล้ว
 
 - Population Mongoose ได้เตรียม feature กระจายข้อมูล (populate) เอาไว้ ในกรณีที่มีการ insert ข้อมูลต่าง collection เข้าไป
+
+### Seeder MongoDB
+
+[Mongoose Random Document](<https://stackoverflow.com/questions/39277670/how-to-find-random-record-in-mongoose#:~:text=To%20get%20random%20document(s,%3A%20String%20%7D)%3B%20User%20%3D%20mongoose.>)
+
+[Faker Seeder](https://fakerjs.dev/)
+
+### Embed document MongoDB
+
+[Document Embed](https://mongoosejs.com/docs/2.7.x/docs/embedded-documents.html)
+
+### CLI
+
+[command.js](https://github.com/tj/commander.js)
+
+### Cronjob
+
+[cron.js](https://github.com/kelektiv/node-cron#readme)
+
+[cron format from unix cronjob](https://www.nncron.ru/help/EN/working/cron-format.htm)
