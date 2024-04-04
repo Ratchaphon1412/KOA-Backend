@@ -1,5 +1,5 @@
 import dotenv  from "dotenv"
-import {connectDB} from "./components/database.config.js"
+import {connectDB,  disconnectDB } from "./components/database.config.js"
 
 
 
@@ -16,6 +16,10 @@ class Facade{
         
         return connectDB(this.env.MONGO_URI)
     }
+
+    _disconnectDB(){
+        return disconnectDB()
+    }   
 
     
 

@@ -12,8 +12,10 @@ import Facade from './config/index.js';
 import {koaBody}  from 'koa-body';
 
 //middleware
-
 import errorHandler from './middleware/error.middleware.js';
+
+//cronjob
+import {jobsStart} from './config/components/jobs.config.js';
 
 
 const app = new Koa();
@@ -49,6 +51,8 @@ router.use('/api',todoRouter.routes() , todoRouter.allowedMethods());
 app.use(router.routes());
 
 
+//cron job start
+jobsStart();
 
 
 
