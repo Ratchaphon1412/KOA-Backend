@@ -1,5 +1,7 @@
 import {Todo,Comment} from './todo.model.js';
 import { validateAll } from 'indicative/validator.js';
+import abort from '../../config/utils/abortError.js';
+
 import mongoose from 'mongoose';
 
 export async function getAllTodolist(ctx) {
@@ -18,10 +20,8 @@ export async function createTodo(ctx) {
         await validateAll(ctx.request.body, rules);
 
     } catch (error) {
-        ctx.status = 400;
-        ctx.body = error;
-        console.log(error);
-        return;
+        
+        abort(400, error);
 
     }
 

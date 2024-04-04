@@ -8,14 +8,11 @@ import todoRouter from './api/todo/todo.routes.js';
 // utilities
 import Facade from './config/index.js';
 
-//library
-import {koaBody}  from 'koa-body';
+//register
 
-//middleware
-import errorHandler from './middleware/error.middleware.js';
+import registerApp from './config/components/server.config.js';
 
-//cronjob
-import {jobsStart} from './config/components/jobs.config.js';
+
 
 
 const app = new Koa();
@@ -23,27 +20,18 @@ export const router = new Router();
 const facade = new Facade();
 
 
-// logger
 
-app.use(async (ctx, next) => {
-    await next();
-    const rt = ctx.response.get('X-Response-Time');
-    console.log(`${ctx.method} ${ctx.url} - ${rt}`);
-});
 
 // db connection
 facade._connectDB();
 
 
+// register app
+registerApp(app);
 
 
-// register library
-app.use(koaBody())
 
 
-// register middleware
-
-app.use(errorHandler);
 
 // router
 router.use('/api',userRouter.routes() , userRouter.allowedMethods());
@@ -51,8 +39,6 @@ router.use('/api',todoRouter.routes() , todoRouter.allowedMethods());
 app.use(router.routes());
 
 
-//cron job start
-jobsStart();
 
 
 
