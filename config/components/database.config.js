@@ -17,6 +17,17 @@ export const connectDB = async (url) => {
     
 }
 
+
+export const disconnectDB = async () => {
+    try {
+        console.log("Disconnecting from database...");
+        await mongoose.disconnect();
+        console.log("Database disconnected successfully");
+    } catch (error) {
+        console.log("Database disconnection failed", error);
+    }
+}
+
 db.on('error', console.error.bind(console, 'connection error:'));
 
 
